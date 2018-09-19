@@ -28,7 +28,7 @@ input[type=radio]{
     margin-bottom: 16px;
 }
 input[type=submit] {
-    background-color: #4CAF50;
+    background-color: #999999;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -36,10 +36,10 @@ input[type=submit] {
     cursor: pointer;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #737373;
 }
 a:link{
-    background-color: #1f8ceb;
+    background-color: #999999;
     color: white;
     padding: 11px 20px;
     text-align: center;
@@ -49,6 +49,7 @@ a:link{
     cursor: pointer;
     float: right;
 }
-.online-chat-launcher{
-    background-color: #45a049;
+#cobrowse:hover{
+    background-color: #737373;
 }
+
