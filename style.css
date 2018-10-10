@@ -47,8 +47,9 @@ a:link{
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    float: right;
 }
+#cobrowse{
+    float: right;
 #cobrowse:hover{
     background-color: #737373;
 }
