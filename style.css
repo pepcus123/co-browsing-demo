@@ -48,9 +48,14 @@ a:link{
     display: inline-block;
     cursor: pointer;
 }
-#cobrowse{
+#cobrowse {
     float: right;
+}
 #cobrowse:hover{
     background-color: #737373;
+}
+#secondLink{
+    background-color: #999999;
+    padding: 12px 20px;
 }
 
