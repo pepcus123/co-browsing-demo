@@ -42,8 +42,18 @@
 
       // Start a Leader session and generate a followerLink
       function startLeaderSession() {
-        const session = Surfly.session({docked_only: true}).startLeader();
-        setTimeout(function(){console.log("timeout",session)},3000);
+        const session = Surfly.session({docked_only: true})
+          // these handlers will only be called for this particular session
+          .on('session_started', function(session) {
+            console.log(session, 'is fully initiated');
+            console.log("session.followerLink", session.followerLink);
+          })
+          .on('viewer_joined', function(session, event) {
+            console.log('there are', event.count, 'users in total');
+          })
+          .startLeader();
+
+        setTimeout(function(){console.log("timeout---",session.followerLink)},3000);
         const fLink = session.followerLink;
         console.log("session",session);
         console.log("Follower Link --", fLink);
@@ -52,24 +62,21 @@
 
       // Start a followerSession using the provided followerLink and
       // establish a session between the Leader and the Follower
-      function startFollowerSession() {
-        const followerLink = getFollowerLink(); // Get this link from input
-        if (!followerLink) {
-          return null;
-        }
+      function startFollowerSession(followerLink) {
         const session = Surfly.session({}, followerLink);
         session.startFollower(null, {name: 'John Doe', foo: 'bar'});
         return session;
       }
 
       function startCobrowsingSession() {
-        if (startFollowerSession() === null) {
-          // Failed to start a follower session as no followerLink available
+        const followerLink = getFollowerLink(); // Get this link from input
+        if (followerLink) {
+          startFollowerSession(followerLink);
+        } else {
           // Start a Leader session instead
           const followerLink = startLeaderSession();
-
-          // Pass the followerLink to another user
         }
+        // Pass the followerLink to another user
       }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css">
