@@ -36,7 +36,8 @@
 
       // Get the followerLink provide in the input from the user
       function getFollowerLink() {
-        return $("#followerLinkInput").value;
+        var linkInput = document.getElementById("followerLinkInput");
+        return linkInput.value;
       }
 
       // Start a Leader session and generate a followerLink
