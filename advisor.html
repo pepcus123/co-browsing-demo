@@ -28,9 +28,7 @@
 
       function onClickSessionStart(e) {
         console.log("seconde link");
-        const session = Surfly.session({docked_only: true});
-
-        session.startLeader();
+        const session = Surfly.session({docked_only: true}).startLeader();
         const fLink = session.followerLink;
         console.log("session",session);
         console.log("Follower Link --", fLink);
