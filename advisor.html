@@ -43,6 +43,7 @@
       // Start a Leader session and generate a followerLink
       function startLeaderSession() {
         const session = Surfly.session({docked_only: true}).startLeader();
+        setTimeout(function(){console.log("timeout",session)},3000);
         const fLink = session.followerLink;
         console.log("session",session);
         console.log("Follower Link --", fLink);
