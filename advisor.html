@@ -25,6 +25,14 @@
           console.log("Surfly was unable to initialize properly.")
         }
       });
+
+      function onClickSessionStart(e) {
+        console.log("seconde link");
+        const session = Surfly.session({docked_only: true});
+        session.startLeader();
+        const fLink = session.followerLink;
+        console.log("Follower Link --", fLink);
+      }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -67,6 +75,7 @@
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
         <input type="submit" value="Submit">
+        <button onclick="onClickSessionStart()" >Second link</button>
         <a href="#surflystart" id="cobrowse" >Show Co-Browse Code</a>
     </form>
 </div>
