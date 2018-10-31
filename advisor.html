@@ -70,12 +70,12 @@
 
       function startCobrowsingSession() {
         const followerLink = getFollowerLink(); // Get this link from input
-        if (followerLink) {
+       /* if (followerLink) {
           startFollowerSession(followerLink);
         } else {
-          // Start a Leader session instead
+          // Start a Leader session instead*/
           const followerLink = startLeaderSession();
-        }
+        //}
         // Pass the followerLink to another user
       }
     </script>
