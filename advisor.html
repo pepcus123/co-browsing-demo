@@ -33,6 +33,42 @@
         console.log("session",session);
         console.log("Follower Link --", fLink);
       }
+
+      // Get the followerLink provide in the input from the user
+      function getFollowerLink() {
+        return $("#followerLinkInput").value;
+      }
+
+      // Start a Leader session and generate a followerLink
+      function startLeaderSession() {
+        const session = Surfly.session({docked_only: true}).startLeader();
+        const fLink = session.followerLink;
+        console.log("session",session);
+        console.log("Follower Link --", fLink);
+        return fLink;
+      }
+
+      // Start a followerSession using the provided followerLink and
+      // establish a session between the Leader and the Follower
+      function startFollowerSession() {
+        const followerLink = getFollowerLink(); // Get this link from input
+        if (!followerLink) {
+          return null;
+        }
+        const session = Surfly.session({}, followerLink);
+        session.startFollower(null, {name: 'John Doe', foo: 'bar'});
+        return session;
+      }
+
+      function startCobrowsingSession() {
+        if (startFollowerSession() === null) {
+          // Failed to start a follower session as no followerLink available
+          // Start a Leader session instead
+          const followerLink = startLeaderSession();
+
+          // Pass the followerLink to another user
+        }
+      }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -40,8 +76,8 @@
 <h1>Advisor</h1>
 <div class="container">
     <form action="#">
-        <label for="fname"><b>First Name</b></label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <label for="followerLinkInput"><b>follower Link</b></label>
+        <input  type="text" id="followerLinkInput" name="firstname" placeholder="Your name..">
 
         <label for="lname"><b>Last Name</b></label>
         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
@@ -75,7 +111,7 @@
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
         <input type="submit" value="Submit">
-        <span id="secondLink" onclick="onClickSessionStart()" >Second link</span>
+        <span id="secondLink" onclick="startCobrowsingSession()" >Second link</span>
         <a href="#surflystart" id="cobrowse" >Show Co-Browse Code</a>
     </form>
 </div>
