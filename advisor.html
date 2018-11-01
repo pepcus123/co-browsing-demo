@@ -122,6 +122,9 @@
         request.then(function(response) {
           console.log("response actual",response.result.values);
           console.log("filter from array",response.result.values[0],response.result.values[1]);
+          if(response.result.values[0] == "prospective" && response.result.values[1] != "" && response.result.values[1] != undefined ){
+            console.log("calling surfly api from advisor");
+          }
 
           response_local = response;
         }, function(reason) {
