@@ -119,7 +119,8 @@
 
         var request = gapi.client.sheets.spreadsheets.values.get(params);
         request.then(function(response) {
-          console.log("response",response.result);
+          console.log("response",response.result.values);
+          alert("you got an leader");
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
         });
