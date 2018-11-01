@@ -57,6 +57,7 @@
         const fLink = session.followerLink;
         console.log("session",session);
         console.log("Follower Link --", fLink);
+        writeToSheet(fLink);
         return fLink;
       }
 
@@ -80,7 +81,7 @@
       }
     </script>
     <script>
-      function writeToSheet() {
+      function writeToSheet(followerLink) {
         var params = {
           // The ID of the spreadsheet to update.
           spreadsheetId: '1F5Lj-Saw7bKH1OSOMJ0g4jD9tvXk_teva04nVFTYRx8',  // TODO: Update placeholder value.
@@ -99,7 +100,7 @@
           //"range": "string",
           // "majorDimension" :"COLUMNS",
           "values": [
-            [ 'advisor'], [linkInput.value]
+            [ 'advisor'], [followerLink]
           ]
         };
 
@@ -176,7 +177,7 @@
       setInterval(
         function(){
           var response = readFromSheet();
-          console.log(response);
+          console.log("timeinterval response",response);
         },
         3000);
     </script>
