@@ -121,7 +121,7 @@
         var request = gapi.client.sheets.spreadsheets.values.get(params);
         request.then(function(response) {
           console.log("response actual",response.result.values);
-          console.log("filter from array",response.result.values[[0],[0]]);
+          console.log("filter from array",response.result.values[0],response.result.values[1]);
 
           response_local = response;
         }, function(reason) {
