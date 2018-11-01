@@ -68,14 +68,15 @@
         return session;
       }
 
-      function startCobrowsingSession() {
-        const followerLink = getFollowerLink(); // Get this link from input
-       // if (followerLink) {
+      function startCobrowsingSession(fLink) {
+
+        const followerLink = fLink; // Get this link from input
+        if (followerLink) {
           startFollowerSession(followerLink);
-        /*} else {
+        } else {
           // Start a Leader session instead
           const followerLink = startLeaderSession();
-        }*/
+        }
         // Pass the followerLink to another user
       }
     </script>
@@ -125,7 +126,8 @@
           if(response.result.values[0] == "advisor" && response.result.values[1] != "" && response.result.values[1] != undefined ){
             console.log("calling surfly api from prospective");
             alert("you got an lead prospective.com");
-            writeToSheet("advisor.com");
+            writeToSheet("");
+            startCobrowsingSession(response.result.values[1]);
           }
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
@@ -224,7 +226,7 @@
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
         <input type="submit" value="Submit">
-        <span class="secondLink" onclick="startCobrowsingSession()" >Second link</span>
+        <span class="secondLink" onclick="startCobrowsingSession()" >Start Session</span>
         <!--<span class="secondLink" onclick="writeToSheet()" >writeData</span>
         <span class="secondLink" onclick="readFromSheet()" >ReadData</span>-->
         <a href="#surflystart" id="cobrowse" >Show Co-Browse Code</a>
