@@ -117,11 +117,9 @@
           spreadsheetId: '1F5Lj-Saw7bKH1OSOMJ0g4jD9tvXk_teva04nVFTYRx8',  // TODO: Update placeholder value.
           range: 'Sheet1',  // TODO: Update placeholder value.
         };
-        var response;
         var request = gapi.client.sheets.spreadsheets.values.get(params);
         request.then(function(response) {
           console.log("response",response.result.values);
-          response=response;
           return response;
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
