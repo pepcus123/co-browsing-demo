@@ -120,6 +120,11 @@
         var request = gapi.client.sheets.spreadsheets.values.get(params);
         request.then(function(response) {
           console.log("response",response.result.values);
+          console.log("response actual",response.result.values);
+          console.log("filter from array",response.result.values[0],response.result.values[1]);
+          if(response.result.values[0] == "advisor" && response.result.values[1] != "" && response.result.values[1] != undefined ){
+            console.log("calling surfly api from prospective");
+          }
           alert("you got an leader");
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
@@ -171,6 +176,14 @@
             onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
     <link rel="stylesheet" href="style2.css" type="text/css">
+    <script type="text/javascript" >
+      setInterval(
+        function(){
+          var response = readFromSheet();
+          console.log("timeinterval response",response);
+        },
+        3000);
+    </script>
 </head>
 <body>
 <h1>Prospective</h1>
