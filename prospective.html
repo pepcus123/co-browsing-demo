@@ -76,6 +76,7 @@
         } else {
           // Start a Leader session instead
           const followerLink = startLeaderSession();
+          writeToSheet(followerLink);
         }
         // Pass the followerLink to another user
       }
