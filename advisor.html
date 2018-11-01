@@ -121,7 +121,6 @@
         request.then(function(response) {
           console.log("response",response.result.values);
           response=response;
-          alert("you got an leader");
           return response;
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
