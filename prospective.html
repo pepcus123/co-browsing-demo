@@ -124,8 +124,8 @@
           console.log("filter from array",response.result.values[0],response.result.values[1]);
           if(response.result.values[0] == "advisor" && response.result.values[1] != "" && response.result.values[1] != undefined ){
             console.log("calling surfly api from prospective");
-            alert("you got an lead");
-            writeToSheet("");
+            alert("you got an lead prospective.com");
+            writeToSheet("advisor.com");
           }
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
