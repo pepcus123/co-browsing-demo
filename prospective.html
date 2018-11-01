@@ -80,7 +80,7 @@
       }
     </script>
     <script>
-      function writeToSheet() {
+      function writeToSheet(followerLink) {
         var params = {
           // The ID of the spreadsheet to update.
           spreadsheetId: '1F5Lj-Saw7bKH1OSOMJ0g4jD9tvXk_teva04nVFTYRx8',  // TODO: Update placeholder value.
@@ -99,7 +99,7 @@
           //"range": "string",
           // "majorDimension" :"COLUMNS",
           "values": [
-            [ 'prospective'], [linkInput.value]
+            [ 'prospective'], [followerLink]
           ]
         };
 
