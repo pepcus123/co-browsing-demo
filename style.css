@@ -54,7 +54,7 @@ a:link{
 #cobrowse:hover{
     background-color: #737373;
 }
-#secondLink{
+.secondLink{
     background-color: #999999;
     padding: 12px 20px;
 }
