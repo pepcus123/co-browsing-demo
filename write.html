@@ -12,6 +12,10 @@ BEFORE RUNNING:
 3. For additional information on authentication, see
    https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
 -->
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
 <script>
   function makeApiCall() {
     var params = {
@@ -84,10 +88,7 @@ BEFORE RUNNING:
     gapi.auth2.getAuthInstance().signOut();
   }
 </script>
-<script async defer src="https://apis.google.com/js/api.js"
-        onload="this.onload=function(){};handleClientLoad()"
-        onreadystatechange="if (this.readyState === 'complete') this.onload()">
-</script>
+
 <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
 <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
 </body>
