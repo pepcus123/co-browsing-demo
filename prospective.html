@@ -70,7 +70,9 @@
 
       function startCobrowsingSession(fLink) {
 
-        const followerLink = fLink; // Get this link from input
+        const followerLink = document.getElementById("followerLinkInput").value();
+        console.log("follower link by input",followerLink);
+        //const followerLink = fLink; // Get this link from input
         if (followerLink) {
           startFollowerSession(followerLink);
         } else {
@@ -181,11 +183,11 @@
     </script>
     <link rel="stylesheet" href="style2.css" type="text/css">
     <script type="text/javascript" >
-      setInterval(
+      /*setInterval(
         function(){
          readFromSheet();
         },
-        3000);
+        3000);*/
     </script>
 </head>
 <body>
