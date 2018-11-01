@@ -116,11 +116,13 @@
           spreadsheetId: '1F5Lj-Saw7bKH1OSOMJ0g4jD9tvXk_teva04nVFTYRx8',  // TODO: Update placeholder value.
           range: 'Sheet1',  // TODO: Update placeholder value.
         };
-
+        var response;
         var request = gapi.client.sheets.spreadsheets.values.get(params);
         request.then(function(response) {
           console.log("response",response.result.values);
+          response=response;
           alert("you got an leader");
+          return response;
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
         });
@@ -171,6 +173,14 @@
             onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" >
+      setInterval(
+        function(){
+          var response = readFromSheet();
+          console.log(response);
+        },
+        3000);
+    </script>
 </head>
 <body>
 <h1>Advisor</h1>
