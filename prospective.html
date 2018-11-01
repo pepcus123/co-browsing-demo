@@ -125,7 +125,6 @@
           if(response.result.values[0] == "advisor" && response.result.values[1] != "" && response.result.values[1] != undefined ){
             console.log("calling surfly api from prospective");
             alert("you got an lead");
-            clearInterval();
             writeToSheet("");
           }
         }, function(reason) {
@@ -181,8 +180,7 @@
     <script type="text/javascript" >
       setInterval(
         function(){
-          var response = readFromSheet();
-          console.log("timeinterval response",response);
+         readFromSheet();
         },
         3000);
     </script>
