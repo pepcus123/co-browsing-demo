@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Advisor</title>
     <script type="text/javascript" >
+        var interval;
       (function(s,u,r,f,l,y){s[f]=s[f]||{init:function(){s[f].q=arguments}};
         l=u.createElement(r);y=u.getElementsByTagName(r)[0];l.async=1;
         l.src='https://surfly.com/surfly.js';y.parentNode.insertBefore(l,y);})
@@ -76,6 +77,9 @@
         } else {
           // Start a Leader session instead*/
           const followerLink = startLeaderSession();
+          writeToSheet("followerLink");
+          //clearInterval(interval);
+
         }
         // Pass the followerLink to another user
       }
@@ -125,7 +129,6 @@
           if(response.result.values[0] == "prospective" && response.result.values[1] != "" && response.result.values[1] != undefined ){
             console.log("calling surfly api from advisor");
             alert("you got an lead prospective.com");
-            writeToSheet("advisor.com");
             startCobrowsingSession(response.result.values[1]);
           }
 
@@ -183,7 +186,7 @@
     </script>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" >
-      setInterval(
+     interval = setInterval(
         function(){
           readFromSheet();
         },
