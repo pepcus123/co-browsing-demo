@@ -55,7 +55,7 @@
           .on('viewer_joined', function(session, event) {
             console.log('there are', event.count, 'users in total');
           })
-          .startLeader(data);
+          .startLeader(null, data);
 
         setTimeout(function(){console.log("timeout---",session.followerLink)},3000);
         const fLink = session.followerLink;
