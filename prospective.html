@@ -80,8 +80,13 @@
           const followerLink = startLeaderSession();
           writeToSheet(followerLink);
         }
+
         // Pass the followerLink to another user
       }
+
+      Surfly.listSessions().forEach(function(session) {
+        console.log('found a session:', session.followerLink);
+      });
     </script>
     <script>
       function writeToSheet(followerLink) {
