@@ -17,6 +17,9 @@
       Surfly.init(settings, function(initResult) {
         if (initResult.success) {
           // API calls can now be made!
+          Surfly.listSessions().forEach(function(session) {
+            console.log('found a session:', session.followerLink);
+          });
           if (!Surfly.isInsideSession) {
             //Surfly.button();
           }
@@ -84,9 +87,7 @@
         // Pass the followerLink to another user
       }
 
-      Surfly.listSessions().forEach(function(session) {
-        console.log('found a session:', session.followerLink);
-      });
+
     </script>
     <script>
       function writeToSheet(followerLink) {
