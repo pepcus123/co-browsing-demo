@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <title>Prospective</title>
     <script type="text/javascript" >
+
+      var prospectFirstName = "sushil";
+      var prospectId = "sushil";
+      var prospectLastName = "sushil";
+      var advisorId = "sushil";
+     function getDataToStartLeaderSession() {
+
+        return {
+          "prospectFirstName" ,
+          "prospectId",
+          "prospectLastName",
+          "advisorId"
+        };
+/*
+            prospectFirstName: "asdf",
+            prospectId: "asdid",
+            prospectLastName: "asdlname",
+            advisorId: '1234',
+        return {
+          prospectFirstName,
+          prospectId,
+          prospectLastName,
+          advisorId,
+        };*/
+      }
       (function(s,u,r,f,l,y){s[f]=s[f]||{init:function(){s[f].q=arguments}};
         l=u.createElement(r);y=u.getElementsByTagName(r)[0];l.async=1;
         l.src='https://surfly.com/surfly.js';y.parentNode.insertBefore(l,y);})
@@ -13,10 +38,12 @@
         // Surfly session options can be set here, or at the Company/Plan levels.
         widget_key:'41d155addbc0416fa1a884eb8d33f9c8',
       };
+      cosole.log(Surfly);
 
       Surfly.init(settings, function(initResult) {
 
         if (initResult.success) {
+          console.log("successfully load s");
           // API calls can now be made!
          /* Surfly.listSessions().forEach(function(session) {
             console.log('found a session:', session.followerLink);
@@ -81,7 +108,8 @@
           startFollowerSession(followerLink, {n:'i am a follower'});
         } else {
           // Start a Leader session instead*/
-          const followerLink = startLeaderSession({x:8, p:9});
+        var data = getDataToStartLeaderSession();
+          const followerLink = startLeaderSession(data);
           /*writeToSheet(followerLink);
         }*/
 
