@@ -74,16 +74,16 @@
 
       function startCobrowsingSession(fLink) {
 
-        const followerLink = document.getElementById("followerLinkInput").value;
+        /*const followerLink = document.getElementById("followerLinkInput").value;
         console.log("follower link by input",followerLink);
         //const followerLink = fLink; // Get this link from input
         if (followerLink) {
           startFollowerSession(followerLink, {n:'i am a follower'});
         } else {
-          // Start a Leader session instead
+          // Start a Leader session instead*/
           const followerLink = startLeaderSession({x:8, p:9});
-          writeToSheet(followerLink);
-        }
+          /*writeToSheet(followerLink);
+        }*/
 
         // Pass the followerLink to another user
       }
