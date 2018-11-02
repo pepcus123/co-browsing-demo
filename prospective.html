@@ -15,11 +15,12 @@
       };
 
       Surfly.init(settings, function(initResult) {
+
         if (initResult.success) {
           // API calls can now be made!
-          Surfly.listSessions().forEach(function(session) {
+         /* Surfly.listSessions().forEach(function(session) {
             console.log('found a session:', session.followerLink);
-          });
+          });*/
           if (!Surfly.isInsideSession) {
             //Surfly.button();
           }
@@ -85,6 +86,11 @@
         }
 
         // Pass the followerLink to another user
+      }
+      function  getList() {
+        Surfly.listSessions().forEach(function(session) {
+          console.log('found a session:', session.followerLink);
+        });
       }
 
 
@@ -236,6 +242,7 @@
 
         <input type="submit" value="Submit">
         <span class="secondLink" onclick="startCobrowsingSession()" >Start Session</span>
+        <span class="secondLink" onclick="getList()" >getList</span>
         <!--<span class="secondLink" onclick="writeToSheet()" >writeData</span>
         <span class="secondLink" onclick="readFromSheet()" >ReadData</span>-->
         <a href="#surflystart" id="cobrowse" >Show Co-Browse Code</a>
