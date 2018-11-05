@@ -93,7 +93,7 @@
 
       // Start a followerSession using the provided followerLink and
       // establish a session between the Leader and the Follower
-      function startFollowerSession(followerLink, data) {
+      function startFollowerSession(followerLink) {
         const session = Surfly.session({}, followerLink);
         session.startFollower(null, {name: 'John Doe', foo: 'bar'});
         return session;

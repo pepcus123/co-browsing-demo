@@ -70,10 +70,9 @@
         return session;
       }
 
-      function startCobrowsingSession(flink) {
+      function startCobrowsingSession() {
 
-
-        const followerLink = flink; // Get this link from input
+        const followerLink = document.getElementById("followerLinkInput").value; // Get this link from input
 
         if (followerLink) {
           startFollowerSession(followerLink);
